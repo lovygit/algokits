@@ -4,7 +4,8 @@ public class Jump{
     int max = 0;
     for(int i=0;i<A.length;i++){
         if(i>max) {return false;}
-        max = Math.max(A[i]+i,max);//A[i]+i is the max step to the next element,for the current element A[i]
+      //A[i]+i is the max step to the next element,for the current element A[i],max marks we can skip the farest element when we are in 'i'
+        max = Math.max(A[i]+i,max);
     }
     return true;
   }
