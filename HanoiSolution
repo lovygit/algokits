@@ -1,0 +1,66 @@
+public class HanoiSolution{
+  private static class HanoiTower{
+        private int n;
+        private String markA="A";//from
+        private String markB="B";//help
+        private String markC="C";//to
+        public HanoiTower(String markA,String markB,String markC,int n){
+            this.markA=markA;
+            this.markB=markB;
+            this.markC=markC;
+            this.n=n;
+        }
+        public HanoiTower(int n){
+            this.n=n;
+        }
+
+        public int getN() {
+            return n;
+        }
+
+        public void setN(int n) {
+            this.n = n;
+        }
+
+        public String getMarkA() {
+            return markA;
+        }
+
+        public void setMarkA(String markA) {
+            this.markA = markA;
+        }
+
+        public String getMarkB() {
+            return markB;
+        }
+
+        public void setMarkB(String markB) {
+            this.markB = markB;
+        }
+
+        public String getMarkC() {
+            return markC;
+        }
+
+        public void setMarkC(String markC) {
+            this.markC = markC;
+        }
+    }
+
+    private void hanoi(int n,String markA,String markB,String markC){
+        List<HanoiTower> hanoiTowers=new LinkedList<>();
+        hanoiTowers.add(new HanoiTower(markA,markB,markC,n));
+        HanoiTower hanoiTower;
+
+        while(hanoiTowers.size()>0){
+            hanoiTower=hanoiTowers.remove(hanoiTowers.size()-1);
+            if(hanoiTower.n==1){
+                System.out.println("move top disk from "+hanoiTower.markA+" to "+hanoiTower.markC);
+            }else{//must emphasize the input-stack sequence
+                hanoiTowers.add(new HanoiTower(hanoiTower.markB,hanoiTower.markA,hanoiTower.markC,hanoiTower.n-1));
+                hanoiTowers.add(new HanoiTower(hanoiTower.markA,hanoiTower.markB,hanoiTower.markC,1));
+                hanoiTowers.add(new HanoiTower(hanoiTower.markA,hanoiTower.markC,hanoiTower.markB,hanoiTower.n-1));
+            }
+        }
+    }
+ }
