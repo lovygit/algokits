@@ -21,7 +21,7 @@ public int pathSum(TreeNode root, int sum) {
             return 0;
         }
         Map<Integer, Integer> map = new HashMap<>();
-        map.put(0, 1);
+        map.put(0, 1);//the purpose of this initail value is in case of the root is a valid path
         return findPathSum(root, 0, sum, map);  
     }
     private int findPathSum(TreeNode curr, int sum, int target, Map<Integer, Integer> map) {
