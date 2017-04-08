@@ -37,7 +37,9 @@ public int pathSum(TreeNode root, int sum) {
         // add the 3 parts discussed in 8. together
         int res = numPathToCurr + findPathSum(curr.left, sum, target, map)
                                                + findPathSum(curr.right, sum, target, map);
-       // restore the map, as the recursion goes from the bottom to the top
+        // restore the map, as the recursion goes from the bottom to the top
+        //If we still store this path's preSum ,when we recursive in the topper level,it's possible
+        //we will count duplicated path
         map.put(sum, map.get(sum) - 1);
         return res;
     }
