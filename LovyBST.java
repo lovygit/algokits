@@ -15,8 +15,6 @@ public class LovyBST<T extends Comparable<? super T>> extends LovyTree<T> {
     public LovyBST(LovyNode<T> root){
         super(root);
     }
-
-
     private LovyNode<T> insert(LovyNode<T> root,LovyNode<T> newNode,boolean duplicated){
         if(root==null)
             return newNode;
