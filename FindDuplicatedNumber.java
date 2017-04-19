@@ -1,4 +1,6 @@
 public class FindDuplicatedNumber{
+  /* If there is this condition nums[i]==i+1
+    this method can't work*/
   public int findDuplicate(int[] nums) {
     int n = nums.length;
     for(int i=0;i<nums.length;i++) nums[i]--;
@@ -16,6 +18,7 @@ public class FindDuplicatedNumber{
     return slow+1;
   }
   
+  /*If nums[i-1]=i,this method can't work*/
   public int findDuplicate2(int[] nums) {
     int n = nums.length;
     int slow = n;
