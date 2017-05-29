@@ -78,7 +78,7 @@ public class KMP {
                 j++;
             }else if(j==0)i++;
             else
-                j=failureArray[j]+1;//You'd better compare this statement with the corresponding statement in [KMPSearchWithNextArray] method.
+                j=failureArray[j-1]+1;//You'd better compare this statement with the corresponding statement in [KMPSearchWithNextArray] method.
         }
         if(j==pattern.length())
             return i-j;
