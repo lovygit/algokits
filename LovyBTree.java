@@ -273,7 +273,7 @@ public class LovyBTree<K extends Comparable<? super K>> {
 
             while(node.getKeys().size()>1){
                 rightSibling.getKeys().add(1,node.getKeys().remove(node.getKeys().size()-1));
-                rightSibling.getChildren().add(0,node.getChildren().get(node.getChildren().size()-1));
+                rightSibling.getChildren().add(0,node.getChildren().remove(node.getChildren().size()-1));
 
                 if(rightSibling.getChildren().get(0)!=null)
                     rightSibling.getChildren().get(0).setParent(rightSibling);
