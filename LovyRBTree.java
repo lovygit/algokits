@@ -236,7 +236,7 @@ public class LovyRBTree<T extends Comparable<? super T>> extends LovyBST<T> {
             return p;
         }else{
             LovyRBNode<T> t=p;
-            p=p.getParent();
+            p=node;
 
             while(p!=null&&p.getRight()==t){
                 t=p;
