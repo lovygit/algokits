@@ -9,10 +9,8 @@ public class Schemer{
         for(int[] course:courses){
             start+=course[0];
             pq.offer(course[0]);
-            if(start>course[1]){
-                pq.poll();
-                start-=course[1];
-            }
+            if(start>course[1])
+              start-=pq.poll();
         }
         return pq.size();
     }
