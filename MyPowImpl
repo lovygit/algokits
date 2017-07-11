@@ -1,0 +1,38 @@
+public class MyPowImpl{
+   private int getClosestNumber(int n){
+        int count=0;
+        while(n>=2){
+            count++;
+            n=n>>>1;
+        }
+        return count;
+    }
+    public double myPow(double x, int n) {
+        if(n==0)
+            return 1;
+        boolean sign=false;
+        if(n<0){
+            sign=true;
+            n=-n;
+            x=1/x;
+        }
+
+        double y=x;
+        int closestNumber=getClosestNumber(n);
+
+        for(int k=0;k<closestNumber;k++){
+            y*=y;
+        }
+        int remained=(int)(n-Math.pow(2,closestNumber));
+        while(remained>0){
+            double tmp=x;
+            closestNumber=getClosestNumber(remained);
+            for(int k=0;k<closestNumber;k++){
+                tmp*=tmp;
+            }
+            y*=tmp;
+            remained=(int)(remained-Math.pow(2,closestNumber));
+        }
+        return y;
+   }
+}
